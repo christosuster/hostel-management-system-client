@@ -16,7 +16,7 @@ const Withdraw = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/payments")
+    fetch("https://hostel-management-system-server.onrender.com/payments")
       .then((res) => res.json())
       .then((data) => setPayments(data))
       .then(() => setIsLoading(false));
@@ -44,9 +44,12 @@ const Withdraw = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/delete-payment/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://hostel-management-system-server.onrender.com/delete-payment/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {

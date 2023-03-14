@@ -127,7 +127,7 @@ const AddRoomMain = () => {
       setIsLoading(false);
       return;
     }
-    fetch("http://localhost:5000/rooms", {
+    fetch("https://hostel-management-system-server.onrender.com/rooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",

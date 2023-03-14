@@ -99,11 +99,14 @@ const MainProfile = (props) => {
       (userInfo?.gender && userInfo?.gender !== data?.gender) ||
       (userInfo?.profession && userInfo?.profession !== data?.profession)
     ) {
-      fetch("http://localhost:5000/profile-update", {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(userInfo),
-      })
+      fetch(
+        "https://hostel-management-system-server.onrender.com/profile-update",
+        {
+          method: "PUT",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userInfo),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {

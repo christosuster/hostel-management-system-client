@@ -43,7 +43,7 @@ const Sighup = () => {
 
     createUser(email, password, userData);
     // .then(() => {
-    //   fetch("http://localhost:5000/users-data", {
+    //   fetch("https://hostel-management-system-server.onrender.com/users-data", {
     //     method: "POST",
     //     headers: {
     //       "content-type": "application/json",

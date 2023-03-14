@@ -10,7 +10,7 @@ const ManageAdmins = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/users")
+    fetch("https://hostel-management-system-server.onrender.com/users")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

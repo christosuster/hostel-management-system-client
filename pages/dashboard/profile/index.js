@@ -8,7 +8,9 @@ const Profile = () => {
   const { user } = useAuth();
   const [data, setData] = useState();
   useEffect(() => {
-    fetch(`http://localhost:5000/users-data/${user?.email}`)
+    fetch(
+      `https://hostel-management-system-server.onrender.com/users-data/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((error) => {

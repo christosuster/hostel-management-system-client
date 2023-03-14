@@ -18,16 +18,19 @@ const MainPayment = ({ room, payInfo }) => {
         if (willDelete) {
           if (room?.category === "Business") {
             if (Object.keys(userInfo?.room).length == 0) {
-              fetch("http://localhost:5000/rooms", {
-                method: "PUT",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify({
-                  roomId: room._id,
-                  currentUser: userInfo._id,
-                }),
-              })
+              fetch(
+                "https://hostel-management-system-server.onrender.com/rooms",
+                {
+                  method: "PUT",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    roomId: room._id,
+                    currentUser: userInfo._id,
+                  }),
+                }
+              )
                 .then((res) => res.json())
                 .then((data) => console.log(data));
             } else {
@@ -37,16 +40,19 @@ const MainPayment = ({ room, payInfo }) => {
             }
           } else {
             if (Object.keys(userInfo?.room).length == 0) {
-              fetch("http://localhost:5000/rooms", {
-                method: "PUT",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify({
-                  roomId: room._id,
-                  currentUser: userInfo._id,
-                }),
-              })
+              fetch(
+                "https://hostel-management-system-server.onrender.com/rooms",
+                {
+                  method: "PUT",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    roomId: room._id,
+                    currentUser: userInfo._id,
+                  }),
+                }
+              )
                 .then((res) => res.json())
                 .then((data) => console.log(data));
             } else {
@@ -87,13 +93,16 @@ const MainPayment = ({ room, payInfo }) => {
               console.log(paymentData);
               event.preventDefault();
 
-              fetch("http://localhost:5000/payment", {
-                method: "POST",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify(paymentData),
-              })
+              fetch(
+                "https://hostel-management-system-server.onrender.com/payment",
+                {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(paymentData),
+                }
+              )
                 .then((res) => res.json())
                 .then((data) => {
                   if (data.acknowledged) {
@@ -112,11 +121,14 @@ const MainPayment = ({ room, payInfo }) => {
                 id: payInfo?._id,
                 amount: parseInt(room?.cost) + parseInt(payInfo?.due),
               };
-              fetch("http://localhost:5000/payments", {
-                method: "PUT",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify(paymentData),
-              })
+              fetch(
+                "https://hostel-management-system-server.onrender.com/payments",
+                {
+                  method: "PUT",
+                  headers: { "content-type": "application/json" },
+                  body: JSON.stringify(paymentData),
+                }
+              )
                 .then((res) => res.json())
                 .then((data) => {
                   if (data.acknowledged) {

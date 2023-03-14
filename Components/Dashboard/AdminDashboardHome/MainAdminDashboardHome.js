@@ -16,21 +16,21 @@ const MainAdminDashboardHome = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/payments")
+    fetch("https://hostel-management-system-server.onrender.com/payments")
       .then((res) => res.json())
       .then((data) => setPayments(data.reverse()))
       .then(() => {
-        fetch("http://localhost:5000/rooms")
+        fetch("https://hostel-management-system-server.onrender.com/rooms")
           .then((res) => res.json())
           .then((data) => setRooms(data.reverse()));
       })
       .then(() => {
-        fetch("http://localhost:5000/users")
+        fetch("https://hostel-management-system-server.onrender.com/users")
           .then((res) => res.json())
           .then((data) => setUsers(data.reverse()));
       })
       .then(() => {
-        fetch("http://localhost:5000/meals")
+        fetch("https://hostel-management-system-server.onrender.com/meals")
           .then((res) => res.json())
           .then((data) => setMeals(data.reverse()));
       })

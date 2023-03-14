@@ -14,7 +14,7 @@ const UserInformation = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("http://localhost:5000/meals")
+    fetch("https://hostel-management-system-server.onrender.com/meals")
       .then((res) => res.json())
       .then((data) => setAllMeals(data));
 
@@ -24,7 +24,9 @@ const UserInformation = () => {
     const date2 = new Date(userInfo.bookedTill);
     setBookedTill(date2.toDateString());
 
-    fetch(`http://localhost:5000/payments/${userInfo._id}`)
+    fetch(
+      `https://hostel-management-system-server.onrender.com/payments/${userInfo._id}`
+    )
       .then((res) => res.json())
       .then((data) => setCurrentUserPayment(data));
   }, [userInfo?.room]);
@@ -60,16 +62,19 @@ const UserInformation = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch("http://localhost:5000/cancelRoom", {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({
-            roomId: userInfo.room._id,
-            currentUser: userInfo._id,
-          }),
-        })
+        fetch(
+          "https://hostel-management-system-server.onrender.com/cancelRoom",
+          {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({
+              roomId: userInfo.room._id,
+              currentUser: userInfo._id,
+            }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {

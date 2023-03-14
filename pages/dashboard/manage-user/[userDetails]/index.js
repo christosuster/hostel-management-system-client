@@ -15,7 +15,7 @@ const UserDetailsPage = ({}) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/users/${id}`)
+    fetch(`https://hostel-management-system-server.onrender.com/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

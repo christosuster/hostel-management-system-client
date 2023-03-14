@@ -15,14 +15,16 @@ const PaymentInstallation = () => {
   const [payInfo, setPayInfo] = useState();
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/rooms/${id}`)
+    fetch(`https://hostel-management-system-server.onrender.com/rooms/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRoom(data);
         console.log(data);
       })
       .then(() => {
-        fetch(`http://localhost:5000/payments/${userInfo?._id}`)
+        fetch(
+          `https://hostel-management-system-server.onrender.com/payments/${userInfo?._id}`
+        )
           .then((res) => res.json())
           .then((data) => {
             setPayInfo(data);

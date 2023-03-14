@@ -11,9 +11,12 @@ const ManageUserElement = ({ data, remainingUsers }) => {
     }).then((willDelete) => {
       if (willDelete) {
         remainingUsers(data._id);
-        fetch(`http://localhost:5000/users/${data._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://hostel-management-system-server.onrender.com/users/${data._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then(() =>
             swal("User delete successful!", {
@@ -27,7 +30,7 @@ const ManageUserElement = ({ data, remainingUsers }) => {
 
     // if (agree) {
     //   remainingUsers(data._id);
-    //   fetch(`http://localhost:5000/users/${data._id}`, {
+    //   fetch(`https://hostel-management-system-server.onrender.com/users/${data._id}`, {
     //     method: "DELETE",
     //   })
     //     .then((res) => res.json())

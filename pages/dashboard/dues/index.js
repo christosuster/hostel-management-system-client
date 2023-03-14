@@ -9,7 +9,7 @@ const Dues = () => {
   const [dueList, setDueList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/payments")
+    fetch("https://hostel-management-system-server.onrender.com/payments")
       .then((res) => res.json())
       .then((data) => setDueList(data));
   }, []);

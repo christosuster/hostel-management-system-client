@@ -26,7 +26,7 @@ const AddNoticeMain = () => {
       date: date,
       time: currentTime,
     };
-    fetch("http://localhost:5000/notice", {
+    fetch("https://hostel-management-system-server.onrender.com/notice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,7 +46,7 @@ const AddNoticeMain = () => {
   const [notices, setNotices] = useState();
   const [notice, setNotice] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/notices")
+    fetch("https://hostel-management-system-server.onrender.com/notices")
       .then((res) => res.json())
       .then((data) => {
         setNotices(data);
@@ -65,9 +65,12 @@ const AddNoticeMain = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/delete-notice/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://hostel-management-system-server.onrender.com/delete-notice/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {

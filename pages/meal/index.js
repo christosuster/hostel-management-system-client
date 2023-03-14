@@ -17,7 +17,7 @@ const Meals = () => {
 
   const router = useRouter();
   useEffect(() => {
-    fetch("http://localhost:5000/meals")
+    fetch("https://hostel-management-system-server.onrender.com/meals")
       .then((res) => res.json())
       .then((data) => setMealData(data));
 
@@ -91,7 +91,7 @@ const Meals = () => {
         });
       } else {
         setIsLoading(true);
-        fetch("http://localhost:5000/meals", {
+        fetch("https://hostel-management-system-server.onrender.com/meals", {
           method: "PUT",
           headers: {
             "content-type": "application/json",
