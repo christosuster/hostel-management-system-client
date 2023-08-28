@@ -36,7 +36,7 @@ const Footer = () => {
         />
       </div>
       <div className="lg:w-1/3 w-screen text-sm text-gray-500 my-4">
-        <h1>Full Stack Force © 2023 All Rights Reserved</h1>
+        <h1>Christos Uster © 2023 All Rights Reserved</h1>
       </div>
       <div className="flex lg:w-1/3 md:w-1/2 w-full justify-center items-center pb-5 lg:py-0">
         <h1 className="text-gray-300 font-bold pr-2">FOLLOW US</h1>
